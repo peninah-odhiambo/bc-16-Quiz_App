@@ -1,0 +1,41 @@
+[
+    {
+        "Question 1":"Which team hasn't scored 100+ goals in a single season?",
+        "choices":[
+            "A:Chelsea",
+            "B":"Arselnal",
+            "C":"Both"
+      
+        ],
+        "correct answer":"B"
+    },
+    {
+        "Question 2":"Jose Mourinho's last 2015/16 Chelsea game was against which side?",
+        "choices":[
+            "A : Leicester City",
+            "B:Sunderland",
+            "C:Stoke City"
+        ],
+        "correctAnswer":"A"
+    },
+    {
+        "Question 3":"Which of these managers hasn't played for and managed the sam club?",
+        "choices":[
+            "A":"Roberto di Matteo",
+            "B":"Gareth Southgate",
+            "C":"Gus Poyet"
+        ],
+        "correctAnswer":"C"
+    },
+    {
+        "Question 4":"Which of these clubs hasn't finished in the top three",
+        "choices":[
+            "A":"Norwich city",
+            "B":"Everton",
+            "C":"Newcastle United"
+    
+        ],
+        "correctAnswer":"B"
+    }
+
+]

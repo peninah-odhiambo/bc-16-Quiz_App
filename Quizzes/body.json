@@ -1,0 +1,41 @@
+[
+    {
+        "Question 1":"What does body fat do?",
+        "choices":[
+            "A":"Stores energy",
+            "B":"Controls blood flow",
+            "C":"It has no purpose"
+      
+        ],
+        "correct answer":"A"
+    },
+    {
+        "Question 2":"You might be able to blame body fat for infertility",
+        "choices":[
+            "A":"True",
+            "B":"False",
+            "C":"I don't know"
+        ],
+        "correctAnswer":"A"
+    },
+    {
+        "Question 3":"What is body mass index (BMI)?",
+        "choices":[
+            "A":"A way to tell if you're anorexic",
+            "B":"A way to tell if you're diabetic",
+            "C":"A way to tell if you're overweight",
+        ],
+        "correctAnswer":"C"
+    },
+    {
+        "Question 4":"Excersise makes it harder to lose weight because it add muscle",
+        "choices":[
+            "A":"True",
+            "B":"False",
+            "C":"I don't know"
+    
+        ],
+        "correctAnswer":"B"
+    }
+
+]
