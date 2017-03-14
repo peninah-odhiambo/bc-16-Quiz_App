@@ -1,7 +1,7 @@
 [
     {
         "time":"60"
-    }
+    },
 
     {
     
@@ -27,12 +27,12 @@
         "choices":{
             "A":"A way to tell if you're anorexic",
             "B":"A way to tell if you're diabetic",
-            "C":"A way to tell if you're overweight",
-        },
+            "C":"A way to tell if you're overweight"
+    },
         "correctAnswer":"C"
     },
     {
-        "Question":"Excersise makes it harder to lose weight because it add muscle",
+        "Question":"Excercise makes it harder to lose weight because it add muscle",
         "choices":{
             "A":"True",
             "B":"False",
