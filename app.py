@@ -34,18 +34,22 @@ def quiz_list():
 # print (quiz_list())
 
 def take_quiz(quiz_name):
-    try:
+    # try:
         with open(quizzes_path + '/' + str(quiz_name) + '.json') as json_data:
-            quiz = json.load(json_data)
-            return (quiz)
-    except:
-        return "Quiz of " + quiz_name + " doesn't exist in local quizzes"
+            quiz_to_take = json.load(json_data)
+            # return quiz_to_take
 
-# print (take_quiz('body'))
+            for question in quiz_to_take:
+                print('\n')
+                print(question["Question"], "\n", question["choices"])
+    # except:
+    #     return "Quiz of " + quiz_name + " doesn't exist in local quizzes"
+
+print (take_quiz('body'))
 
     # TO-DO: Identify the quiz to be taken = quiz_name(DONE)
     # TO-DO: Add error message for incorrect quiz_name = Quiz doesn't exist(DONE) 
-    # TO-DO: Display the questions and choices of quiz_name
+    # TO-DO: Display one question and its choices of quiz_name
     # TO-DO: Prompt user for an answer within the choices of the questions displayed
     # TO-DO: Check on a functionality for skipping options
     # TO-DO: Program should check whether the answer is correct or incorrect 
