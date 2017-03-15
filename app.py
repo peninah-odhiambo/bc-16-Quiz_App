@@ -2,7 +2,6 @@ import json
 import os
 import shutil
 
-
 # Read JSON files from Quizzes folder
 root_path = os.path.dirname(os.path.abspath(__file__))
 quizzes_path = root_path + '/Quizzes'
@@ -42,6 +41,9 @@ def take_quiz(quiz_name):
 
             questions_triggered = 0
             score = 0
+            percentage_score =  int(round(score/questions_triggered))*100
+            print ("You scored", score, "out of", questions_triggered, ' ', percentage_score, '%\n' )
+
 
             while questions_triggered <= len(quiz_to_take):
                 for question in quiz_to_take:
@@ -67,38 +69,16 @@ def take_quiz(quiz_name):
 
                         print ("You scored", score, "out of", questions_triggered) 
 
-                break
-
-                    
-                    
-
-
-
-
-
                         
+                break 
 
-
-
-
-
-            # for question in quiz_to_take: 
-            #     print ("\r\n")
-            #     print(question["Question"], ":\r\n", "\r\n".join(question["choices"]))
-
-
-                # return key + ':\n' + '\n'.join(value)
 
     except:
         return "Error: Quiz of " + quiz_name + " doesn't exist in local quizzes"
         quiz_to_take = json.load(json_data)
         # return quiz_to_take
 
-
-
-
-
-print (take_quiz('body'))
+take_quiz("body")
 
     # TO-DO: Identify the quiz to be taken = quiz_name(DONE)
     # TO-DO: Add error message for incorrect quiz_name = Quiz doesn't exist(DONE) 
