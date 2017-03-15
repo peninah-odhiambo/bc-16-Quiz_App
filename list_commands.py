@@ -21,7 +21,7 @@ interactive command application.
 
 Usage:
     Quiz_app list_quizzes
-    Quiz_app list_import <quiz_path> 
+    Quiz_app quiz_import <quiz_path> 
     Quiz_app take_quiz <quiz_name>
     Quiz_app add total score
     Quiz_app add timer
@@ -40,7 +40,7 @@ import time
 from docopt import docopt, DocoptExit
 from pyfiglet import Figlet,figlet_format
 from termcolor import cprint
-# from app import quiz_import
+from app import quiz_import
 from app import quiz_list
 # # from app import take_quiz
 
@@ -77,7 +77,7 @@ def docopt_cmd(func):
 
 class MyInteractive(cmd.Cmd):
     f = Figlet(font = 'slant')
-    print(cprint(figlet_format("Quiz Time!", font='broadway'),'blue'))
+    print(cprint(figlet_format("Quiz Time!", font='o8'),'blue'))
     intro = "Greetings! Let's get started!\n" + "(type help for a command list.)"
     prompt = '(quiz_list) '
     file = None
@@ -90,8 +90,8 @@ class MyInteractive(cmd.Cmd):
 
     @docopt_cmd
     def do_quiz_import(self, args):
-        """Usage: list_import <quiz_path> """
-        quiz_import(path_to_quiz_to_import)
+        """Usage: quiz_import <quiz_path> """
+        quiz_import(args["<quiz_path>"])
         
 
     def do_quit(self, arg):
