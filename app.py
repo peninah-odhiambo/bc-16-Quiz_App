@@ -34,16 +34,34 @@ def quiz_list():
 # print (quiz_list())
 
 def take_quiz(quiz_name):
-    # try:
+    try:
         with open(quizzes_path + '/' + str(quiz_name) + '.json') as json_data:
             quiz_to_take = json.load(json_data)
-            # return quiz_to_take
+            #sreturn quiz_to_take
+            #print (quiz_to_take)
+
+
 
             for question in quiz_to_take:
-                print('\n')
-                print(question["Question"], "\n", question["choices"])
-    # except:
-    #     return "Quiz of " + quiz_name + " doesn't exist in local quizzes"
+                print(question["Question"])
+                for key, value in question["choices"].items():
+                    print (key, value)
+
+            # for question in quiz_to_take: 
+            #     print ("\r\n")
+            #     print(question["Question"], ":\r\n", "\r\n".join(question["choices"]))
+
+
+                # return key + ':\n' + '\n'.join(value)
+
+    except:
+        return "Error: Quiz of " + quiz_name + " doesn't exist in local quizzes"
+        quiz_to_take = json.load(json_data)
+        # return quiz_to_take
+
+            
+
+
 
 print (take_quiz('body'))
 
