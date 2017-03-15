@@ -40,13 +40,6 @@ def take_quiz(quiz_name):
             #sreturn quiz_to_take
             #print (quiz_to_take)
 
-
-
-            for question in quiz_to_take:
-                print(question["Question"])
-                for key, value in question["choices"].items():
-                    print (key, value)
-
             for question in quiz_to_take:
                 questions_triggered = 0
                 score = 0
@@ -65,9 +58,12 @@ def take_quiz(quiz_name):
     
                     else:
                         print("Sorry. Wrong answer")
+                        print("The correct answer is" + question[" correctAnswer"])
                         questions_triggered +=1
                         score = score
                         print("Your score is", score)
+
+
 
             # for question in quiz_to_take: 
             #     print ("\r\n")
@@ -90,13 +86,16 @@ print (take_quiz('body'))
     # TO-DO: Identify the quiz to be taken = quiz_name(DONE)
     # TO-DO: Add error message for incorrect quiz_name = Quiz doesn't exist(DONE) 
     # TO-DO: Display one question and its choices of quiz_name ( DONE BUT FIGURE OUT TO BRING ONE AT A TIME)
-    # TO-DO: Prompt user for an answer within the choices of the questions displayed
+    # TO-DO: Prompt user for an answer within the choices of the questions displayed (DONE)
     # TO-DO: Check on a functionality for skipping options
-    # TO-DO: Program should check whether the answer is correct or incorrect 
-    # TO-DO: Tell user whether the answer is "Correct" or "Incorrect"
-    # TO-DO: Proceed to the nect questions till the end of the questions.
+    # TO-DO: Program should check whether the answer is correct or incorrect (DONE)
+    # TO-DO: Tell user whether the answer is "Correct" or "Incorrect" (DONE)
+    # TO-DO: Proceed to the nect questions till the end of the questions. (DONE)
     # TO-DO: Displays the total results in percentage as an integer i.e. full number
     # TO-DO: If 0-29% == You've not done well, 30-50% Average 51-100% Clap for yourself
     # TO-DO: Say Thanks and Prompt user to take another quiz and remind them the command for quizlist
     # TO-DO: Implement timing
+    # TO-DO: Fix looping issue = stop it
+    # TO-DO: Display right answer when wrong
+
 
