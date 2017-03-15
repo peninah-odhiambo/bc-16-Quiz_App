@@ -65,7 +65,14 @@ def take_quiz(quiz_name):
                         score = score
                         print("Your score is", score)
 
+                        print ("You scored", score, "out of", questions_triggered) 
+
                 break
+
+                    
+                    
+
+
 
 
 
@@ -105,7 +112,7 @@ print (take_quiz('body'))
     # TO-DO: If 0-29% == You've not done well, 30-50% Average 51-100% Clap for yourself
     # TO-DO: Say Thanks and Prompt user to take another quiz and remind them the command for quizlist
     # TO-DO: Implement timing
-    # TO-DO: Fix looping issue = stop it
-    # TO-DO: Display right answer when wrong
+    # TO-DO: Fix looping issue = stop it (DONE)
+    # TO-DO: Display right answer when wrong (DONE)
 
 
