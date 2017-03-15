@@ -47,6 +47,28 @@ def take_quiz(quiz_name):
                 for key, value in question["choices"].items():
                     print (key, value)
 
+            for question in quiz_to_take:
+                questions_triggered = 0
+                score = 0
+                while questions_triggered < len(quiz_to_take):
+                    print("Please choose an option")
+                    print(question["Question"])
+                    for key,value in question["choices"].items():
+                        print(key, value)
+    
+                    user_input = input("What is your answer?")
+                    if (user_input.capitalize() == question["correctAnswer"]):
+                        print("Good job. You've gotten the correct answer!")
+                        questions_triggered += 1
+                        score +=1
+                        print("Your score is", score)
+    
+                    else:
+                        print("Sorry. Wrong answer")
+                        questions_triggered +=1
+                        score = score
+                        print("Your score is", score)
+
             # for question in quiz_to_take: 
             #     print ("\r\n")
             #     print(question["Question"], ":\r\n", "\r\n".join(question["choices"]))
@@ -59,7 +81,7 @@ def take_quiz(quiz_name):
         quiz_to_take = json.load(json_data)
         # return quiz_to_take
 
-            
+
 
 
 
@@ -67,7 +89,7 @@ print (take_quiz('body'))
 
     # TO-DO: Identify the quiz to be taken = quiz_name(DONE)
     # TO-DO: Add error message for incorrect quiz_name = Quiz doesn't exist(DONE) 
-    # TO-DO: Display one question and its choices of quiz_name
+    # TO-DO: Display one question and its choices of quiz_name ( DONE BUT FIGURE OUT TO BRING ONE AT A TIME)
     # TO-DO: Prompt user for an answer within the choices of the questions displayed
     # TO-DO: Check on a functionality for skipping options
     # TO-DO: Program should check whether the answer is correct or incorrect 
