@@ -40,12 +40,14 @@ def take_quiz(quiz_name):
             #sreturn quiz_to_take
             #print (quiz_to_take)
 
-            for question in quiz_to_take:
-                questions_triggered = 0
-                score = 0
-                while questions_triggered < len(quiz_to_take):
+            questions_triggered = 0
+            score = 0
+
+            while questions_triggered <= len(quiz_to_take):
+                for question in quiz_to_take:
                     print("Please choose an option")
                     print(question["Question"])
+
                     for key,value in question["choices"].items():
                         print(key, value)
     
@@ -58,10 +60,18 @@ def take_quiz(quiz_name):
     
                     else:
                         print("Sorry. Wrong answer")
-                        print("The correct answer is" + question[" correctAnswer"])
+                        print("The correct answer is " + question["correctAnswer"])
                         questions_triggered +=1
                         score = score
                         print("Your score is", score)
+
+                break
+
+
+
+                        
+
+
 
 
 
