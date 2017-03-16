@@ -1,15 +1,35 @@
 import json
+import sys
 import os
 import shutil
 import time
 from termcolor import cprint, colored
 from pyfiglet import Figlet,figlet_format
+from threading import Thread
 
 
 root_path = os.path.dirname(os.path.abspath(__file__))
 quizzes_path = root_path + '/Quizzes'
 
+time_remaining = 30
+def call_take_quiz():
+   return take_quiz()
 
+def call_timer():
+    global time_remaining
+    return timer()
+
+
+quiz_thread = Thread (target = call_take_quiz) # Calls first function
+timer_thread = Thread (target = call_timer) # Calls the second function to run at the same time 
+
+def timer():
+    global time_remaining
+    print ("Starting countdown ...")
+    for i in range (30, 0, -1):
+        time.sleep (1)
+        time_remaining -= 1
+        # print ("Time left is: %s seconds\r")
 def quiz_import(path_to_quiz_to_import):
     """Description: Use command to import quiz from external location.
        Usage: quiz_import <path_to_quiz_JSON>
@@ -29,7 +49,12 @@ def quiz_list():
             file_name_without_json = file[:-5] # To get rid of .json (slicing method)
             print(file_name_without_json)
 
+
+# def start_quiz(quiz_name):
+#     call_quiz_take.start()
+
 def take_quiz(quiz_name):
+    global time_remaining
     try:
         with open(quizzes_path + '/' + str(quiz_name) + '.json') as json_data:
             quiz_to_take = json.load(json_data)
@@ -49,11 +74,12 @@ def take_quiz(quiz_name):
             #     print (" ")
             #     out_of_time = False
 
+            timer_thread.start()
             while questions_triggered < len(quiz_to_take):
                 # print (questions[position])
                 # print ("")
                 # out_of_time = False
-
+                global time_remaining
                 for question in quiz_to_take:
                     print ('\n')
                     print("Please choose an option")
@@ -85,7 +111,13 @@ def take_quiz(quiz_name):
                         score = score
                         print("Your score is", score)
 
-                    print ("You scored", score, "out of", questions_triggered) 
+                    print ("You scored", score, "out of", questions_triggered)
+                    if time_remaining < 1:
+                        print ("Timeout")
+                        return 
+                        
+                    else:
+                        print ("Time reamining:" + str(time_remaining) + "s") 
                         
 
 
@@ -116,8 +148,8 @@ def take_quiz(quiz_name):
                     # break 
 
 
-    except:
-        return "Error: Quiz of " + quiz_name + " doesn't exist in local quizzes"
+    except Exception as e:
+        return "Error: Quiz of " + quiz_name + " doesn't exist in local quizzes" + e
         quiz_to_take = json.load(json_data)
         # return quiz_to_take
 
@@ -135,5 +167,6 @@ def take_quiz(quiz_name):
     # TO-DO: Implement timing
     # TO-DO: Fix looping issue = stop it (DONE)
     # TO-DO: Display right answer when wrong (DONE)
+
 
 
