@@ -36,19 +36,20 @@ def take_quiz(quiz_name):
     try:
         with open(quizzes_path + '/' + str(quiz_name) + '.json') as json_data:
             quiz_to_take = json.load(json_data)
-            #sreturn quiz_to_take
-            #print (quiz_to_take)
+            # return quiz_to_take
+            # print (quiz_to_take)
 
             questions_triggered = 0
             score = 0
-            percentage_score =  int(round(score/questions_triggered))*100
-            print ("You scored", score, "out of", questions_triggered, ' ', percentage_score, '%\n' )
+            # percentage_score =  int(round(score/questions_triggered))*100
+            # print ("You scored", score, "out of", questions_triggered, ' ', percentage_score, '%\n' )
 
 
-            while questions_triggered <= len(quiz_to_take):
+            while questions_triggered < len(quiz_to_take):
                 for question in quiz_to_take:
                     print("Please choose an option")
                     print(question["Question"])
+
 
                     for key,value in question["choices"].items():
                         print(key, value)
@@ -59,6 +60,9 @@ def take_quiz(quiz_name):
                         questions_triggered += 1
                         score +=1
                         print("Your score is", score)
+                        # percentage = score/questions_triggered * 100
+                        # print (percentage)
+
     
                     else:
                         print("Sorry. Wrong answer")
@@ -68,9 +72,12 @@ def take_quiz(quiz_name):
                         print("Your score is", score)
 
                         print ("You scored", score, "out of", questions_triggered) 
-
-                        
-                break 
+                        # percentage = score/questions_triggered * 100
+                        # print (percentage) 
+                percentage = score/questions_triggered * 100
+                percentage = int(percentage)
+                print ("Your total percentage is {} %".format(percentage))     
+                        # break 
 
 
     except:
@@ -78,7 +85,7 @@ def take_quiz(quiz_name):
         quiz_to_take = json.load(json_data)
         # return quiz_to_take
 
-take_quiz("body")
+# take_quiz("football")
 
     # TO-DO: Identify the quiz to be taken = quiz_name(DONE)
     # TO-DO: Add error message for incorrect quiz_name = Quiz doesn't exist(DONE) 
