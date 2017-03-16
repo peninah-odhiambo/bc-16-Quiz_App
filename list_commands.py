@@ -5,15 +5,7 @@
 # from docopt import docopt, DocoptExit
 # import my_methods
 
-# class docopt_cmd(Cmd):
-#     def greet_user(self,args):
-#         if len(arg) == 0:
-#             name = "User"
 
-#         else:
-#             name = args
-#         print ("Hello, %s" % name)
-#   
 #!/usr/bin/env python
 """
 This example uses docopt with the built in cmd module to demonstrate an
@@ -36,7 +28,10 @@ Options:
 import sys
 import cmd
 import time
+import clint
+from clint.textui import colored
 from colorama import init 
+from colorama import Fore, Back, Style
 from docopt import docopt, DocoptExit
 from pyfiglet import Figlet,figlet_format
 from termcolor import cprint, colored
@@ -77,10 +72,32 @@ def docopt_cmd(func):
     return fn
 
 
+# class MyInteractive(cmd.Cmd):
+
+#     print (colored('='.center(170,"="), 'green', attrs=['bold']))
+#     print (colored('='.center(170,"="), 'green', attrs=['bold']))
+#     cprint(figlet_format('SMART', font='univers'),'red', 'on_grey', attrs=['bold'])
+#     print (colored('='.center(170,"="), 'green', attrs=['bold']))
+#     print (colored('='.center(170,"="), 'green', attrs=['bold']))
+#     print ("\n")
+#     cprint(figlet_format('READY?'), 'yellow', attrs=['bold'])
+#     intro = "Let's get started!\n" + "(type help for a command list.)"
+#     prompt = '(quiz_list) '
+
+    
+#     print("-".center(73,"-"))
+
+
+#     file = None
 class MyInteractive(cmd.Cmd):
+    print (colored('='.center(170,"="), 'green', attrs=['bold']))
+    print (colored('='.center(170,"="), 'green', attrs=['bold']))
     f = Figlet(font = 'slant')
-    print (cprint(figlet_format("Quiz Time!", font='o8'),'blue'))
-    intro = "Greetings! Let's get started!\n" + "(type help for a command list.)"
+    cprint(figlet_format('SMART', font='univers'),'red', 'on_grey', attrs=['bold'])
+    print (colored('='.center(170,"="), 'green', attrs=['bold']))
+    print (colored('='.center(170,"="), 'green', attrs=['bold']))
+    cprint(figlet_format('READY?'), 'yellow', attrs=['bold'])
+    intro = "Let's get started!\n" + "(type help for a command list.)"
     prompt = '(quiz_list) '
     file = None
 
@@ -104,9 +121,13 @@ class MyInteractive(cmd.Cmd):
     def do_quit(self, arg):
         """Quits out of Interactive Mode."""
 
+        print (colored('='.center(170,"="), 'green', attrs=['bold']))
+        print (colored('='.center(170,"="), 'green', attrs=['bold']))
         print('Thank you for trying out the quizzes!\n')
         print("Try another quiz!\n")
-        print(cprint(figlet_format("Visit soon!", font = 'o8'),'blue'))
+        print (colored('='.center(170,"="), 'green', attrs=['bold']))
+        print (colored('='.center(170,"="), 'green', attrs=['bold']))
+        cprint(figlet_format("Visit Soon!"), 'yellow', attrs=['bold'])
         
         exit()
 
