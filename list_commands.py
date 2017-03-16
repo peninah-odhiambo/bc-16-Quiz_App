@@ -42,7 +42,7 @@ from pyfiglet import Figlet,figlet_format
 from termcolor import cprint
 from app import quiz_import
 from app import quiz_list
-# # from app import take_quiz
+from app import take_quiz
 
 
 def docopt_cmd(func):
@@ -92,6 +92,11 @@ class MyInteractive(cmd.Cmd):
     def do_quiz_import(self, args):
         """Usage: quiz_import <quiz_path> """
         quiz_import(args["<quiz_path>"])
+
+    @docopt_cmd
+    def do_take_quiz(self, args):
+        """Usage: take_quiz <quiz_name> """
+        print(take_quiz(args["<quiz_name>"]))
         
 
     def do_quit(self, arg):
