@@ -1,3 +1,4 @@
+import click
 import json
 import sys
 import os
@@ -12,15 +13,15 @@ root_path = os.path.dirname(os.path.abspath(__file__))
 quizzes_path = root_path + '/Quizzes'
 
 time_remaining = 30
-def call_take_quiz():
-   return take_quiz()
+# def call_take_quiz():
+#    return take_quiz()
 
 def call_timer():
     global time_remaining
     return timer()
 
 
-quiz_thread = Thread (target = call_take_quiz) # Calls first function
+# quiz_thread = Thread (target = call_take_quiz) # Calls first function
 timer_thread = Thread (target = call_timer) # Calls the second function to run at the same time 
 
 def timer():
@@ -98,24 +99,24 @@ def take_quiz(quiz_name):
                     #     print (EXIT)
 
                     if (user_input.capitalize() == question["correctAnswer"]):
-                        print("Good job. You've gotten the correct answer!")
+                        click.secho("Good job. You've gotten the correct answer!", fg = 'green')
                         questions_triggered += 1
                         score +=1
                         print("Your score is", score)
                         
     
                     else:
-                        print("Sorry. Wrong answer")
-                        print("The correct answer is " + question["correctAnswer"])
+                        click.secho("Sorry. Wrong answer", fg = 'red')
+                        click.secho("The correct answer is " + question["correctAnswer"], fg = 'cyan')
                         questions_triggered +=1
                         score = score
                         print("Your score is", score)
 
                     print ("You scored", score, "out of", questions_triggered)
                     if time_remaining < 1:
-                        print ("Timeout")
+                        click.secho("Timeout!!!!", bold = True)
                         return 
-                        
+
                     else:
                         print ("Time reamining:" + str(time_remaining) + "s") 
                         
@@ -125,7 +126,7 @@ def take_quiz(quiz_name):
 
                 percentage = score/questions_triggered * 100
                 percentage = int(round(percentage))
-                print("Total Score percentage is {} %".format(percentage))  
+                click.secho ("TOTAL SCORE PERCENTAGE IS {} %".format(percentage), bold = True)  
 
                 print ('\n')
 
