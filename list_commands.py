@@ -36,13 +36,15 @@ Options:
 import sys
 import cmd
 import time
-# from colorama import init 
+from colorama import init 
 from docopt import docopt, DocoptExit
 from pyfiglet import Figlet,figlet_format
-from termcolor import cprint
+from termcolor import cprint, colored
 from app import quiz_import
 from app import quiz_list
 from app import take_quiz
+
+
 
 
 def docopt_cmd(func):
@@ -77,7 +79,7 @@ def docopt_cmd(func):
 
 class MyInteractive(cmd.Cmd):
     f = Figlet(font = 'slant')
-    print(cprint(figlet_format("Quiz Time!", font='o8'),'blue'))
+    print (cprint(figlet_format("Quiz Time!", font='o8'),'blue'))
     intro = "Greetings! Let's get started!\n" + "(type help for a command list.)"
     prompt = '(quiz_list) '
     file = None
