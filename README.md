@@ -41,6 +41,7 @@ To install all requirements, download the [requirements.txt] (https://github.com
 
          
          pip install -r /path/to/requirements.txt
+
 To get you started, after installation, use the commands, listonline and download quiz or copy the quizzes in [this] (https://github.com/peninah-odhiambo/bc-16-Quiz_App/tree/master/Quizzes) project's github repository and use the importquiz command to import them into the Quizzler library.
 Commands
 
@@ -55,7 +56,6 @@ upload (quiz source path	Add quiz to online collection
 importquiz (quiz source path)	Add quiz to local collection from external source
 Copyright and Licensing
 
-MIT license. For detailed licence information, see [license] (https://github.com/emabishi/bc-7-Quiz-Application/blob/master/LICENSE)
 
 Contact Information
 
