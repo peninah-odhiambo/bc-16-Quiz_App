@@ -57,6 +57,6 @@ importquiz (quiz source path)	Add quiz to local collection from external source
 Copyright and Licensing
 
 
-Contact Information
+**************************   Contact Information ***********************************
 
-Find the author at [peninah-odhiambo] (https://github.com/peninah-odhiambo) on github. -->
+Find the author at [peninah-odhiambo] (https://github.com/peninah-odhiambo) on github. 
