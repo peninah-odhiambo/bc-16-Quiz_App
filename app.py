@@ -13,15 +13,14 @@ root_path = os.path.dirname(os.path.abspath(__file__))
 quizzes_path = root_path + '/Quizzes'
 
 time_remaining = 30
-# def call_take_quiz():
-#    return take_quiz()
+
 
 def call_timer():
     global time_remaining
     return timer()
 
 
-# quiz_thread = Thread (target = call_take_quiz) # Calls first function
+
 timer_thread = Thread (target = call_timer) # Calls the second function to run at the same time 
 
 def timer():
@@ -30,7 +29,7 @@ def timer():
     for i in range (30, 0, -1):
         time.sleep (1)
         time_remaining -= 1
-        # print ("Time left is: %s seconds\r")
+       
 def quiz_import(path_to_quiz_to_import):
     """Description: Use command to import quiz from external location.
        Usage: quiz_import <path_to_quiz_JSON>
@@ -51,9 +50,6 @@ def quiz_list():
             print(file_name_without_json)
 
 
-# def start_quiz(quiz_name):
-#     call_quiz_take.start()
-
 def take_quiz(quiz_name):
     global time_remaining
     try:
@@ -68,12 +64,7 @@ def take_quiz(quiz_name):
             print ('\n')
             print (colored('-'.center(170,"-"), 'red', attrs=['bold']))
 
-            # start_time = time.time()
-            # duration = 5*len(questions)
-            # while position < len(questions):
-            #     print (question[position])
-            #     print (" ")
-            #     out_of_time = False
+          
 
             timer_thread.start()
             while questions_triggered < len(quiz_to_take):
@@ -92,12 +83,7 @@ def take_quiz(quiz_name):
     
                     user_input = input("What is your answer?") 
 
-                    # elapsed = time.time() - start_time
-                    # if elapsed > duration:
-                    #     out_of_time = True
-                    #     print ("Time up!")
-                    #     print (EXIT)
-
+                   
                     if (user_input.capitalize() == question["correctAnswer"]):
                         click.secho("Good job. You've gotten the correct answer!", fg = 'green')
                         questions_triggered += 1
@@ -123,6 +109,8 @@ def take_quiz(quiz_name):
 
 
                 print ('\n') 
+                """Displays the total results in percentage as an integer i.e. full number(DONE)
+                """
 
                 percentage = score/questions_triggered * 100
                 percentage = int(round(percentage))
@@ -136,38 +124,15 @@ def take_quiz(quiz_name):
             print ('\n')
 
              
-
-        # def countdown (count):
-        #     while (count >= 0):
-        #         print ("The count is : ", count)
-        #         count -= 10
-        #         time.sleep (1)
-
-        # countdown (30)
-        # print ("Time Up!")
-
-                    # break 
-
-
     except Exception as e:
-        return "Error: Quiz of " + quiz_name + " doesn't exist in local quizzes" + e
+        return "Error: Quiz of " + quiz_name + " doesn't exist in local quizzes" 
         quiz_to_take = json.load(json_data)
         # return quiz_to_take
 
-    # TO-DO: Identify the quiz to be taken = quiz_name(DONE)
-    # TO-DO: Add error message for incorrect quiz_name = Quiz doesn't exist(DONE) 
-    # TO-DO: Display one question and its choices of quiz_name ( DONE)
-    # TO-DO: Prompt user for an answer within the choices of the questions displayed (DONE)
-    # TO-DO: Check on a functionality for skipping options
-    # TO-DO: Program should check whether the answer is correct or incorrect (DONE)
-    # TO-DO: Tell user whether the answer is "Correct" or "Incorrect" (DONE)
-    # TO-DO: Proceed to the nect questions till the end of the questions. (DONE)
-    # TO-DO: Displays the total results in percentage as an integer i.e. full number(DONE)
-    # TO-DO: If 0-29% == You've not done well, 30-50% Average 51-100% Clap for yourself
+
+
     # TO-DO: Say Thanks and Prompt user to take another quiz and remind them the command for quizlist(DONE)
-    # TO-DO: Implement timing
-    # TO-DO: Fix looping issue = stop it (DONE)
-    # TO-DO: Display right answer when wrong (DONE)
+
 
 
 
